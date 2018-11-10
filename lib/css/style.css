@@ -1,0 +1,148 @@
+/* flex-box */
+.d-flex{
+  display: flex;
+}
+.justify-content-center{
+  justify-content: center;
+}
+.align-items-center{
+  align-items: center;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-column{
+  flex-direction: column;
+}
+.flex-row{
+  flex-direction: row;
+}
+/* display */
+.d-none{
+  display: none;
+}
+.d-block{
+  display: block;
+}
+
+
+
+/* margins */
+.mt-1{
+  margin-top: 5px;
+}
+.mt-2{
+  margin-top: 10px;
+}
+.mt-3{
+  margin-top: 15px;
+}
+.mt-4{
+  margin-top: 20px;
+}
+/* padding */
+.p-1{
+  padding: 2px;
+}
+.p-2{
+  padding: 5px;
+}
+.px-1{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.px-2{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.px-3{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* positions */
+.position-relative{
+  position: relative;
+}
+.position-absolute{
+  position: absolute;
+}
+.position-fixed{
+  position: fixed;
+}
+.top-0{
+  top: 0px;
+}
+.bottom-0{
+  bottom: 0px;
+}
+.left-0{
+  left: 0px;
+}
+.right-0{
+  right: 0px;
+}
+/* border */
+.border-rounded{
+  border-radius: 20px;
+}
+.border-rounded-1{
+  border-radius: 3px;
+}
+.border-rounded-2{
+  border-radius: 5px;
+}
+/* shadows */
+.box-shadow-1{
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+/* font-size */
+.font-size-1{
+  font-size: 1em !important;
+}
+.font-size-2{
+  font-size: 2em !important;
+}
+.font-size-3{
+  font-size: 3em !important;
+}
+.font-size-4{
+  font-size: 4em !important;
+}
+/* sizes */
+.w-100{
+  width: 100%;
+}
+.h-100{
+  height: 100%;
+}
+
+
+
+#viewer{
+  min-height: 250px;
+  height: calc(100vh - 100px);
+  margin: 0px;
+}
+.max{
+  width: 100%;
+  height: 100%;
+}
+.menu{
+  box-shadow: none;
+}
+.fixed-bottom{
+  position: fixed;
+  bottom: 2px;
+}
+.right{
+  right: 10px;
+}
+.card-info{
+  width: 250px;
+  right: 60px;
+}
+.card-info-aux{
+  margin-bottom: 10px;
+}

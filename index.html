@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="renderizador">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Renderizador de Mensagens</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.25.5/sweetalert2.all.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.25.5/sweetalert2.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="./lib/css/style.css">
+  <meta name="theme-color" content="#0f0">
+</head>
+<body class="grey darken-3" ng-controller="principalController">
+  <nav class="grey darken-3 menu">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo">RenderApp</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <!-- <i class="material-icons">3d_rotation</i> -->
+      </ul>
+    </div>
+  </nav>
+  <main class="row d-flex justify-content-center">
+    <div id="viewer" class="col s12" ng-view=""></div>
+  </main>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+<script src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
+<script src="./lib/js/config/angular-locale-pt-br.js"></script>
+<script type="text/javascript" src="./lib/js/config/app.js"></script>
+<script type="text/javascript" src="./lib/js/config/route.js"></script>
+<script type="text/javascript" src="./lib/js/controller/principalController.js"></script>
+<script type="text/javascript" src="./lib/js/controller/conversaController.js"></script>
+</html>

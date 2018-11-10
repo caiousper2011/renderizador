@@ -1,0 +1,18 @@
+<div class="flex-center max flex-column">
+  <a class="btn btn-floating btn-large pulse light-blue accent-3"><i class="material-icons font-size-2" ng-click="documentoEnviado()">cloud_upload</i></a>
+  <h6 class="box-shadow-1 text-center light-blue accent-3 p-2 px-3 white-text border-rounded mt-3">Enviar conversa á ser renderizada</h6>
+</div>
+<!-- informacoes -->
+<h5 class="fixed-bottom right btn btn-floating grey" ng-click="informacoes = !informacoes">
+  <i class="fas white-text fa-info"></i>
+</h5>
+<div class="card-info m5 fixed-bottom d-none" ng-class="!informacoes? 'scale-transition scale-out d-block': 'scale-transition d-block'">
+  <div class="card-panel card-info-aux white">
+    <span class="">
+      Para converter o arquivo da conversa
+      em uma conversa legível, basta apenas
+      fazer o upload e nós revolvemos tudo
+      pra você <i class="material-icons position-absolute">tag_faces</i>
+    </span>
+  </div>
+</div>
