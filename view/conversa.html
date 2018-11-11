@@ -1,8 +1,24 @@
 <div class="flex-center max flex-column">
   <section id="conversa" class="grey lighten-2 box-shadow-1 border-rounded-1">
     <article id="container-geral" class="border-rounded-1">
-      <header class="header-conversas position-absolute top-0 w-100">header</header>
-      <footer class="footer-conversas position-absolute bottom-0 w-100 p-1">footer</footer>
+      <header class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
+        <div class="col s6 flex-center px-0 title-nomes">
+          <div class="icon-circle border-rounded"></div>
+          <span class="ml-1">Caio Barbosa</span>
+        </div>
+        <div class="col s6 flex-center px-0 title-nomes justify-content-end ">
+          <span class="mr-1">Cintia Godoi</span>
+          <div class="icon-circle border-rounded amber accent-4"></div>
+        </div>
+      </header>
+      <footer class="footer-conversas position-absolute bottom-0 w-100 p-1 px-2">
+        <article class="container-input position-relative">
+          <input type="text" placeholder="Pesquisar texto digitado" class="border-rounded white-text light-blue accent-3 px-2 mb-2 w-100" id="buscador">
+          <button id="bt-buscador" class="waves-effect waves-light">
+            <i class="fa fa-search"></i>
+          </button>
+        </article>
+      </footer>
     </article>
   </section>
   <style>
@@ -20,8 +36,14 @@
       position: relative;
       overflow: hidden;
     }
-    .header-conversas{
-      wi
+    .title-nomes{
+      padding: 0px !important;
+      justify-content: flex-start;
+    }
+    .icon-circle{
+      width: 30px;
+      height: 30px;
+      background: #00558F;
     }
     @media (max-width: 500px){
       #conversa{
@@ -33,6 +55,7 @@
         max-height: none;
         position: absolute;
         top: 0;
+        border-radius: 0px;
       }
     }
   </style>
