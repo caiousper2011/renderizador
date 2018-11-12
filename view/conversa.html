@@ -1,6 +1,8 @@
 <div class="flex-center max flex-column">
   <section id="conversa" class="grey lighten-2 box-shadow-1 border-rounded-1">
     <article id="container-geral" class="border-rounded-1">
+
+      <!-- header -->
       <header class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
         <div class="col s6 flex-center px-0 title-nomes">
           <div class="icon-circle border-rounded"></div>
@@ -11,6 +13,13 @@
           <div class="icon-circle border-rounded amber accent-4"></div>
         </div>
       </header>
+      <!-- conteudo -->
+      <div id="box-mensagens">
+        
+      </div>
+      <!-- fim conteudo -->
+
+      <!-- footer -->
       <footer class="footer-conversas position-absolute bottom-0 w-100 p-1 px-2">
         <article class="container-input position-relative">
           <input type="text" placeholder="Pesquisar texto digitado" class="border-rounded white-text light-blue accent-3 px-2 mb-2 w-100" id="buscador">
@@ -36,6 +45,22 @@
       position: relative;
       overflow: hidden;
     }
+    #box-mensagens{
+      width: 100%;
+      height: calc(100% - 90px);
+      background: red;
+      margin-top: 50px;
+      overflow-y: scroll;
+    }
+    #box-mensagens::-webkit-scrollbar-track {
+          background-color: #0000000f;
+    }
+    #box-mensagens::-webkit-scrollbar {
+          width: 3px;
+    }
+    #box-mensagens::-webkit-scrollbar-thumb {
+          background: #67676738;
+    }
     .title-nomes{
       padding: 0px !important;
       justify-content: flex-start;
@@ -45,6 +70,7 @@
       height: 30px;
       background: #00558F;
     }
+
     @media (max-width: 500px){
       #conversa{
         width: 100vw;
@@ -57,6 +83,23 @@
         top: 0;
         border-radius: 0px;
       }
+      #bt-opcoes{
+        margin-bottom: 30px;
+        right: 10px;
+      }
+      #bt-opcoes ul{
+        bottom: 40px;
+      }
+      .bt-tamanho{
+        width: 40px !important;
+        height: 40px !important;
+        line-height: 40px;
+        padding: 0px;
+        padding-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
   </style>
 
@@ -67,8 +110,8 @@
 
 </div>
 <!-- menu botao -->
-<div class="fixed-action-btn vertical click-to-toggle">
-  <a class="btn-floating btn-large light-blue accent-3">
+<div class="fixed-action-btn vertical click-to-toggle" id="bt-opcoes">
+  <a class="btn-floating light-blue accent-3 btn-large bt-tamanho">
     <i class="large material-icons font-size-2">add</i>
   </a>
   <ul>
