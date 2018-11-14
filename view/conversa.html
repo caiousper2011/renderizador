@@ -14,8 +14,68 @@
         </div>
       </header>
       <!-- conteudo -->
-      <div id="box-mensagens">
-        
+      <div id="box-mensagens" style=" padding: 0px 10px">
+        <article class="container-mensagens mt-4" style="margin-top: 20px;" ng-repeat="row in conversas.conversa">
+          <div class="s12 flex-center">
+            <label class="tag_data">{{row.dia}}</label>
+          </div>
+          <div class="container-mensagem-linha" ng-repeat="linha in row.conversas.mensagens" ng-class="linha.id == '1'? 'flex-row':'flex-row-reverse'">
+            <div class="mensagem-linha-icone" ng-class="linha.id == '1'? 'icone-pessoa-azul':'icone-pessoa-marrom'">
+              <div class="icone-pessoa"></div>
+            </div>
+            <div class="mensagem-linha-container-conteudo">
+              <div class="conteudo-mensagem" ng-bind="linha.texto"></div>
+              <div class="conteudo-mensagem-horario">
+                <div class="icone-horario" ng-bind="linha.hora" ng-class="linha.id == '1'? 'icone-tag-azul':'icone-tag-marrom'"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <style>
+          .icone-horario{
+            padding: 0px 10px;
+            border-radius: 20px;
+            font-size: 0.6em;
+            color: white;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+            margin-top: 5px;
+            display: inline-block;
+          }
+          .icone-tag-azul{
+            background: #00558F;
+            float: left;
+          }
+          .icone-tag-marrom{
+            background: #ffab00;
+            float: right;
+          }
+          .conteudo-mensagem{
+            padding: 5px 10px;
+            box-sizing: border-box;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+            font-size: 1.1em;
+            background: white;
+            border-radius: 3px;
+          }
+          .mensagem-linha-container-conteudo{
+            width: calc(100% - 40px);
+
+          }
+          .mensagem-linha-icone{
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+          }
+          .icone-pessoa-azul{
+            background: #00558F;
+            margin-right: 10px;
+          }
+          .icone-pessoa-marrom{
+            background: #ffab00;
+            margin-left: 10px;
+          }
+        </style>
       </div>
       <!-- fim conteudo -->
 
@@ -48,18 +108,17 @@
     #box-mensagens{
       width: 100%;
       height: calc(100% - 90px);
-      background: red;
       margin-top: 50px;
       overflow-y: scroll;
     }
     #box-mensagens::-webkit-scrollbar-track {
-          background-color: #0000000f;
+      background-color: #0000000f;
     }
     #box-mensagens::-webkit-scrollbar {
-          width: 3px;
+      width: 3px;
     }
     #box-mensagens::-webkit-scrollbar-thumb {
-          background: #67676738;
+      background: #67676738;
     }
     .title-nomes{
       padding: 0px !important;
@@ -70,7 +129,23 @@
       height: 30px;
       background: #00558F;
     }
-
+    .tag_data{
+      padding: 5px 15px;
+      border-radius: 20px;
+      background: #a1a1a1;
+      color: #ffffff;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .container-mensagem-linha{
+      max-width: 80%;
+      min-width: 50%;
+      width: 280px;
+      padding: 5px 0px;
+      display: flex;
+      flex-direciton: row;
+      margin-top: 10px;
+    }
     @media (max-width: 500px){
       #conversa{
         width: 100vw;
@@ -123,3 +198,49 @@
     </li>
   </ul>
 </div>
+
+
+<!-- objen generator -->
+<!-- conversa
+29/01/2018
+mensagens[0]
+nome = Caio Barbosa
+texto = Oi
+hora = 12:20
+mensagens[1]
+nome = Caio Barbosa
+texto = Tudo bem?
+hora = 12:20
+mensagens[2]
+nome = Cíntia Elisabete
+texto = Oi, tudo sim e você4
+hora = 12:24
+mensagens[3]
+nome = Caio Barbosa de Almeida
+texto = To bem tbm.
+hora = 12:26
+mensagens[4]
+nome = Caio Barbosa de Almeida
+texto = Então... Estou com um problema e queria saber de vocês qual a providencia que devo tomar, porque já fazem 30 dias que ando reclamando com vocês e nada de vocês me ajudarem.
+hora = 12:39
+30/01/2018
+mensagens[0]
+nome = Caio Barbosa
+texto = Oi
+hora = 12:20
+mensagens[1]
+nome = Caio Barbosa
+texto = Tudo bem?
+hora = 12:20
+mensagens[2]
+nome = Cíntia Elisabete
+texto = Oi, tudo sim e você
+hora = 12:24
+mensagens[3]
+nome = Caio Barbosa de Almeida
+texto = To bem tbm.
+hora = 12:26
+mensagens[4]
+nome = Caio Barbosa de Almeida
+texto = Então... Estou com um problema e queria saber de vocês qual a providencia que devo tomar, porque já fazem 30 dias que ando reclamando com vocês e nada de vocês me ajudarem.
+hora = 12:39 -->
