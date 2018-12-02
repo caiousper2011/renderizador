@@ -1,7 +1,8 @@
 <div class="flex-center max flex-column">
-  <a class="btn btn-floating btn-large pulse light-blue accent-3"><i class="material-icons font-size-2" ng-click="documentoEnviado()">cloud_upload</i></a>
+  <label for="arquivo" class="btn btn-floating btn-large pulse light-blue accent-3"><i class="material-icons font-size-2" ng-click="documentoEnviado()">cloud_upload</i></label>
   <h6 class="box-shadow-1 text-center light-blue accent-3 p-2 px-3 white-text border-rounded mt-3">Enviar conversa á ser renderizada</h6>
 </div>
+<input type="file" id="arquivo" name="files" accept=".txt">
 <!-- informacoes -->
 <h5 class="fixed-bottom right btn btn-floating grey" ng-click="informacoes = !informacoes">
   <i class="fas white-text fa-info"></i>
