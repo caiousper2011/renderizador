@@ -14,76 +14,31 @@
         </div>
       </header>
       <!-- conteudo -->
-      <div id="box-mensagens" style=" padding: 0px 10px">
+      <div id="box-mensagens" style=" padding: 0px 10px" class="conteudo">
         <article class="container-mensagens mt-4" style="margin-top: 20px;" ng-repeat="row in conversas.conversa">
           <div class="s12 flex-center">
             <label class="tag_data">{{row.dia}}</label>
           </div>
-          <div class="container-mensagem-linha" ng-repeat="linha in row.conversas.mensagens" ng-class="linha.id == '1'? 'flex-row':'flex-row-reverse'">
-            <div class="mensagem-linha-icone" ng-class="linha.id == '1'? 'icone-pessoa-azul':'icone-pessoa-marrom'">
+          <div class="container-mensagem-linha" ng-repeat="linha in row.conversas.mensagens" ng-class="linha.id_pessoa == '1'? 'flex-row':'flex-row-reverse'">
+            <div class="mensagem-linha-icone" ng-class="linha.id_pessoa == '1'? 'icone-pessoa-azul':'icone-pessoa-marrom'">
               <div class="icone-pessoa"></div>
             </div>
             <div class="mensagem-linha-container-conteudo">
               <div class="conteudo-mensagem" ng-bind="linha.texto"></div>
               <div class="conteudo-mensagem-horario">
-                <div class="icone-horario" ng-bind="linha.hora" ng-class="linha.id == '1'? 'icone-tag-azul':'icone-tag-marrom'"></div>
+                <div class="icone-horario" ng-bind="linha.hora" ng-class="linha.id_pessoa == '1'? 'icone-tag-azul':'icone-tag-marrom'"></div>
               </div>
             </div>
           </div>
         </article>
-        <style>
-          .icone-horario{
-            padding: 0px 10px;
-            border-radius: 20px;
-            font-size: 0.6em;
-            color: white;
-            box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
-            margin-top: 5px;
-            display: inline-block;
-          }
-          .icone-tag-azul{
-            background: #00558F;
-            float: left;
-          }
-          .icone-tag-marrom{
-            background: #ffab00;
-            float: right;
-          }
-          .conteudo-mensagem{
-            padding: 5px 10px;
-            box-sizing: border-box;
-            box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
-            font-size: 1.1em;
-            background: white;
-            border-radius: 3px;
-          }
-          .mensagem-linha-container-conteudo{
-            width: calc(100% - 40px);
-
-          }
-          .mensagem-linha-icone{
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
-          }
-          .icone-pessoa-azul{
-            background: #00558F;
-            margin-right: 10px;
-          }
-          .icone-pessoa-marrom{
-            background: #ffab00;
-            margin-left: 10px;
-          }
-        </style>
       </div>
       <!-- fim conteudo -->
 
       <!-- footer -->
       <footer class="footer-conversas position-absolute bottom-0 w-100 p-1 px-2">
         <article class="container-input position-relative">
-          <input type="text" placeholder="Pesquisar texto digitado" class="border-rounded white-text light-blue accent-3 px-2 mb-2 w-100" id="buscador">
-          <button id="bt-buscador" class="waves-effect waves-light">
+          <input ng-model="texto_busca" type="text" placeholder="Pesquisar texto digitado" class="border-rounded white-text light-blue accent-3 px-2 mb-2 w-100" id="buscador">
+          <button id="bt-buscador" class="waves-effect waves-light" ng-click="buscar()">
             <i class="fa fa-search"></i>
           </button>
         </article>
@@ -145,6 +100,49 @@
       display: flex;
       flex-direciton: row;
       margin-top: 10px;
+    }
+    .icone-horario{
+      padding: 0px 10px;
+      border-radius: 20px;
+      font-size: 0.6em;
+      color: white;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+      margin-top: 5px;
+      display: inline-block;
+    }
+    .icone-tag-azul{
+      background: #00558F;
+      float: left;
+    }
+    .icone-tag-marrom{
+      background: #ffab00;
+      float: right;
+    }
+    .conteudo-mensagem{
+      padding: 5px 10px;
+      box-sizing: border-box;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+      font-size: 1.1em;
+      background: white;
+      border-radius: 3px;
+    }
+    .mensagem-linha-container-conteudo{
+      width: calc(100% - 40px);
+
+    }
+    .mensagem-linha-icone{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+    }
+    .icone-pessoa-azul{
+      background: #00558F;
+      margin-right: 10px;
+    }
+    .icone-pessoa-marrom{
+      background: #ffab00;
+      margin-left: 10px;
     }
     @media (max-width: 500px){
       #conversa{
