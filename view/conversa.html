@@ -3,14 +3,19 @@
     <article id="container-geral" class="border-rounded-1">
 
       <!-- header -->
-      <header class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
+      <header ng-hide="usuarios.length > 2" class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
         <div class="col s6 flex-center px-0 title-nomes">
           <div class="icon-circle border-rounded"></div>
-          <span class="ml-1">Caio Barbosa</span>
+          <span class="ml-1" ng-bind="usuarios[0].nome | limitTo: 15"></span>
         </div>
         <div class="col s6 flex-center px-0 title-nomes justify-content-end ">
-          <span class="mr-1">Cintia Godoi</span>
+          <span class="mr-1" ng-bind="usuarios[1].nome | limitTo: 15"></span>
           <div class="icon-circle border-rounded amber accent-4"></div>
+        </div>
+      </header>
+      <header ng-show="usuarios.length > 2" class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
+        <div class="col s12 flex-center px-0 title-nomes">
+          <span>Grupo</span>
         </div>
       </header>
       <!-- conteudo -->
@@ -19,14 +24,14 @@
           <div class="s12 flex-center">
             <label class="tag_data">{{row.dia}}</label>
           </div>
-          <div class="container-mensagem-linha" ng-repeat="linha in row.conversas.mensagens" ng-class="linha.id_pessoa == '1'? 'flex-row':'flex-row-reverse'">
-            <div class="mensagem-linha-icone" ng-class="linha.id_pessoa == '1'? 'icone-pessoa-azul':'icone-pessoa-marrom'">
+          <div class="container-mensagem-linha" ng-repeat="linha in row.conversas.mensagens" ng-class="linha.id == '1'? 'flex-row':'flex-row-reverse'">
+            <div class="mensagem-linha-icone" ng-class="linha.id == '1'? 'icone-pessoa-azul':'icone-pessoa-marrom'">
               <div class="icone-pessoa"></div>
             </div>
             <div class="mensagem-linha-container-conteudo">
               <div class="conteudo-mensagem" ng-bind="linha.texto"></div>
               <div class="conteudo-mensagem-horario">
-                <div class="icone-horario" ng-bind="linha.hora" ng-class="linha.id_pessoa == '1'? 'icone-tag-azul':'icone-tag-marrom'"></div>
+                <div class="icone-horario" ng-bind="linha.hora" ng-class="linha.id == '1'? 'icone-tag-azul':'icone-tag-marrom'"></div>
               </div>
             </div>
           </div>
