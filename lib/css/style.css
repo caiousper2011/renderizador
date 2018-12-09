@@ -219,3 +219,133 @@
 #bt-buscador:hover{
   background: #0476c4;
 }
+#conversa{
+  height: calc(100vh - 50px);
+  width: calc(100vh / 2 - 50px);
+  max-width: 500px;
+  max-height: 700px;
+  min-height: 400px;
+  min-widtH: 300px;
+}
+#container-geral{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+#box-mensagens{
+  width: 100%;
+  height: calc(100% - 90px);
+  margin-top: 50px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#box-mensagens::-webkit-scrollbar-track {
+  background-color: #0000000f;
+}
+#box-mensagens::-webkit-scrollbar {
+  width: 3px;
+}
+#box-mensagens::-webkit-scrollbar-thumb {
+  background: #67676738;
+}
+.title-nomes{
+  padding: 0px !important;
+  justify-content: flex-start;
+}
+.icon-circle{
+  width: 30px;
+  height: 30px;
+  background: #00558F;
+}
+.tag_data{
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: #a1a1a1;
+  color: #ffffff;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.container-mensagem-linha{
+  max-width: 80%;
+  min-width: 50%;
+  width: 280px;
+  padding: 5px 0px;
+  display: flex;
+  flex-direciton: row;
+  margin-top: 10px;
+}
+.icone-horario{
+  padding: 0px 10px;
+  border-radius: 20px;
+  font-size: 0.6em;
+  color: white;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+  margin-top: 5px;
+  display: inline-block;
+}
+.icone-tag-azul{
+  background: #00558F;
+  float: left;
+}
+.icone-tag-marrom{
+  background: #ffab00;
+  float: right;
+}
+.conteudo-mensagem{
+  padding: 5px 10px;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+  font-size: 1.1em;
+  background: white;
+  border-radius: 3px;
+  word-break: break-all;
+}
+.mensagem-linha-container-conteudo{
+  width: calc(100% - 40px);
+
+}
+.mensagem-linha-icone{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
+}
+.icone-pessoa-azul{
+  background: #00558F;
+  margin-right: 10px;
+}
+.icone-pessoa-marrom{
+  background: #ffab00;
+  margin-left: 10px;
+}
+@media (max-width: 500px){
+  #conversa{
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    min-height: 400px;
+    min-widtH: 300px;
+    max-height: none;
+    position: absolute;
+    top: 0;
+    border-radius: 0px;
+  }
+  #bt-opcoes{
+    margin-bottom: 30px;
+    right: 10px;
+  }
+  #bt-opcoes ul{
+    bottom: 40px;
+  }
+  .bt-tamanho{
+    width: 40px !important;
+    height: 40px !important;
+    line-height: 40px;
+    padding: 0px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

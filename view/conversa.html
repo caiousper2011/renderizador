@@ -1,33 +1,34 @@
 <div class="flex-center max flex-column">
   <section id="conversa" class="grey lighten-2 box-shadow-1 border-rounded-1">
     <article id="container-geral" class="border-rounded-1">
-
-      <!-- header -->
-      <header ng-hide="usuarios.length > 2" class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
-        <div class="col s6 flex-center px-0 title-nomes">
-          <div class="icon-circle border-rounded"></div>
-          <span class="ml-1" ng-bind="usuarios[0].nome | limitTo: 10"></span>
-        </div>
-        <div class="col s6 flex-center px-0 title-nomes justify-content-end ">
-          <span class="mr-1" ng-bind="usuarios[1].nome | limitTo: 10"></span>
-          <div class="icon-circle border-rounded amber accent-4"></div>
-        </div>
-      </header>
-      <header ng-show="usuarios.length > 2" class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
-        <div class="col s12 flex-center px-0 title-nomes">
-          <span>Grupo</span>
-        </div>
-      </header>
-      <!-- conteudo -->
+        <header ng-click="abrir_usuarios()" ng-hide="usuarios.length > 2" class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
+          <div class="col s6 flex-center px-0 title-nomes">
+            <div class="icon-circle border-rounded"></div>
+            <span class="ml-1" ng-bind="usuarios[0].nome | limitTo: 10"></span>
+          </div>
+          <div class="col s6 flex-center px-0 title-nomes justify-content-end ">
+            <span class="mr-1" ng-bind="usuarios[1].nome | limitTo: 10"></span>
+            <div class="icon-circle border-rounded amber accent-4"></div>
+          </div>
+        </header>
+        <header ng-click="abrir_usuarios()" ng-show="usuarios.length > 2" class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
+          <div class="col s12 flex-center px-0 title-nomes">
+            <span>Grupo</span>
+          </div>
+        </header>
       <div id="box-mensagens" style=" padding: 0px 10px" class="conteudo">
+        <input type="text" style="opacity: 0" id="texto_copiar">
         <article class="container-mensagens mt-4" style="margin-top: 20px;" ng-repeat="row in conversas.conversa">
           <div class="s12 flex-center" ng-show="row.dia != ''">
             <label class="tag_data">{{row.dia}}</label>
           </div>
           <div class="container-mensagem-linha" ng-repeat="linha in row.conversas.mensagens" ng-class="linha.id == '1'? 'flex-row':'flex-row-reverse'">
-            <div class="mensagem-linha-icone" ng-class="linha.id == '1'? 'icone-pessoa-azul':'icone-pessoa-marrom'">
-              <div class="icone-pessoa"></div>
-            </div>
+            <!-- href="https://api.whatsapp.com/send?phone=5511912345678&text=1" -->
+            <a>
+              <div class="mensagem-linha-icone" ng-class="linha.id == '1'? 'icone-pessoa-azul':'icone-pessoa-marrom'">
+                <div class="icone-pessoa"></div>
+              </div>
+            </a>
             <div class="mensagem-linha-container-conteudo">
               <div class="conteudo-mensagem" ng-bind="linha.texto" ng-click="copiarMensagem(linha.texto)"></div>
               <div class="conteudo-mensagem-horario">
@@ -37,8 +38,6 @@
           </div>
         </article>
       </div>
-      <!-- fim conteudo -->
-      <!-- footer -->
       <footer class="footer-conversas position-absolute bottom-0 w-100 p-1 px-2">
         <article class="container-input position-relative">
           <input ng-model="texto_busca" disabled="disabled" data-tooltip="Função ainda não disponível" type="text" placeholder="Pesquisar texto digitado" class="border-rounded white-text light-blue accent-3 px-2 mb-2 w-100" id="buscador">
@@ -49,144 +48,6 @@
       </footer>
     </article>
   </section>
-  <style>
-    #conversa{
-      height: calc(100vh - 50px);
-      width: calc(100vh / 2 - 50px);
-      max-width: 500px;
-      max-height: 700px;
-      min-height: 400px;
-      min-widtH: 300px;
-    }
-    #container-geral{
-      width: 100%;
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    #box-mensagens{
-      width: 100%;
-      height: calc(100% - 90px);
-      margin-top: 50px;
-      overflow-y: scroll;
-      overflow-x: hidden;
-    }
-    #box-mensagens::-webkit-scrollbar-track {
-      background-color: #0000000f;
-    }
-    #box-mensagens::-webkit-scrollbar {
-      width: 3px;
-    }
-    #box-mensagens::-webkit-scrollbar-thumb {
-      background: #67676738;
-    }
-    .title-nomes{
-      padding: 0px !important;
-      justify-content: flex-start;
-    }
-    .icon-circle{
-      width: 30px;
-      height: 30px;
-      background: #00558F;
-    }
-    .tag_data{
-      padding: 5px 15px;
-      border-radius: 20px;
-      background: #a1a1a1;
-      color: #ffffff;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-    .container-mensagem-linha{
-      max-width: 80%;
-      min-width: 50%;
-      width: 280px;
-      padding: 5px 0px;
-      display: flex;
-      flex-direciton: row;
-      margin-top: 10px;
-    }
-    .icone-horario{
-      padding: 0px 10px;
-      border-radius: 20px;
-      font-size: 0.6em;
-      color: white;
-      box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
-      margin-top: 5px;
-      display: inline-block;
-    }
-    .icone-tag-azul{
-      background: #00558F;
-      float: left;
-    }
-    .icone-tag-marrom{
-      background: #ffab00;
-      float: right;
-    }
-    .conteudo-mensagem{
-      padding: 5px 10px;
-      box-sizing: border-box;
-      box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
-      font-size: 1.1em;
-      background: white;
-      border-radius: 3px;
-      word-break: break-all;
-    }
-    .mensagem-linha-container-conteudo{
-      width: calc(100% - 40px);
-
-    }
-    .mensagem-linha-icone{
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
-      box-shadow: 0px 3px 6px rgba(0,0,0,0.16);
-    }
-    .icone-pessoa-azul{
-      background: #00558F;
-      margin-right: 10px;
-    }
-    .icone-pessoa-marrom{
-      background: #ffab00;
-      margin-left: 10px;
-    }
-    @media (max-width: 500px){
-      #conversa{
-        width: 100vw;
-        height: 100vh;
-        max-width: none;
-        min-height: 400px;
-        min-widtH: 300px;
-        max-height: none;
-        position: absolute;
-        top: 0;
-        border-radius: 0px;
-      }
-      #bt-opcoes{
-        margin-bottom: 30px;
-        right: 10px;
-      }
-      #bt-opcoes ul{
-        bottom: 40px;
-      }
-      .bt-tamanho{
-        width: 40px !important;
-        height: 40px !important;
-        line-height: 40px;
-        padding: 0px;
-        padding-top: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    }
-  </style>
-
-
-
-
-
-
 </div>
 <!-- menu botao -->
 <div class="fixed-action-btn vertical click-to-toggle" id="bt-opcoes">
@@ -202,49 +63,13 @@
     </li>
   </ul>
 </div>
-
-
-<!-- objen generator -->
-<!-- conversa
-29/01/2018
-mensagens[0]
-nome = Caio Barbosa
-texto = Oi
-hora = 12:20
-mensagens[1]
-nome = Caio Barbosa
-texto = Tudo bem?
-hora = 12:20
-mensagens[2]
-nome = Cíntia Elisabete
-texto = Oi, tudo sim e você4
-hora = 12:24
-mensagens[3]
-nome = Caio Barbosa de Almeida
-texto = To bem tbm.
-hora = 12:26
-mensagens[4]
-nome = Caio Barbosa de Almeida
-texto = Então... Estou com um problema e queria saber de vocês qual a providencia que devo tomar, porque já fazem 30 dias que ando reclamando com vocês e nada de vocês me ajudarem.
-hora = 12:39
-30/01/2018
-mensagens[0]
-nome = Caio Barbosa
-texto = Oi
-hora = 12:20
-mensagens[1]
-nome = Caio Barbosa
-texto = Tudo bem?
-hora = 12:20
-mensagens[2]
-nome = Cíntia Elisabete
-texto = Oi, tudo sim e você
-hora = 12:24
-mensagens[3]
-nome = Caio Barbosa de Almeida
-texto = To bem tbm.
-hora = 12:26
-mensagens[4]
-nome = Caio Barbosa de Almeida
-texto = Então... Estou com um problema e queria saber de vocês qual a providencia que devo tomar, porque já fazem 30 dias que ando reclamando com vocês e nada de vocês me ajudarem.
-hora = 12:39 -->
+<!-- Modal Structure -->
+<div id="users" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  </div>
+</div>
