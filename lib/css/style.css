@@ -36,6 +36,9 @@
 .d-block{
   display: block;
 }
+.d-inline-block{
+  display: inline-block;
+}
 
 
 
@@ -62,7 +65,7 @@
   margin-bottom: 7.5px;
 }
 .ml-1{
- margin-left: 5px;
+  margin-left: 5px;
 }
 .mr-1{
   margin-right: 5px;
@@ -239,12 +242,16 @@
   margin-top: 50px;
   overflow-y: scroll;
   overflow-x: hidden;
+  background: url(https://st2.depositphotos.com/1963019/9464/v/950/depositphotos_94649040-stock-illustration-vector-doodle-seamless-pattern-with.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 #box-mensagens::-webkit-scrollbar-track {
   background-color: #0000000f;
 }
 #box-mensagens::-webkit-scrollbar {
-  width: 3px;
+  width: 6px;
 }
 #box-mensagens::-webkit-scrollbar-thumb {
   background: #67676738;
@@ -269,10 +276,9 @@
 .container-mensagem-linha{
   max-width: 80%;
   min-width: 50%;
-  width: 280px;
+  /* width: 280px; */
   padding: 5px 0px;
   display: flex;
-  flex-direciton: row;
   margin-top: 10px;
 }
 .icone-horario{
@@ -318,6 +324,16 @@
 .icone-pessoa-marrom{
   background: #ffab00;
   margin-left: 10px;
+}
+.footer-conversas{
+  background: url(https://st2.depositphotos.com/1963019/9464/v/950/depositphotos_94649040-stock-illustration-vector-doodle-seamless-pattern-with.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.linha-reversa{
+  display: flex;
+  justify-content: flex-end;
 }
 @media (max-width: 500px){
   #conversa{

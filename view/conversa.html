@@ -17,7 +17,6 @@
           </div>
         </header>
       <div id="box-mensagens" style=" padding: 0px 10px" class="conteudo">
-        <input type="text" style="opacity: 0" id="texto_copiar">
         <article class="container-mensagens mt-4" style="margin-top: 20px;" ng-repeat="row in conversas.conversa">
           <div class="s12 flex-center" ng-show="row.dia != ''">
             <label class="tag_data">{{row.dia}}</label>
@@ -37,6 +36,7 @@
             </div>
           </div>
         </article>
+        <input type="text" style="opacity: 0" id="texto_copiar">
       </div>
       <footer class="footer-conversas position-absolute bottom-0 w-100 p-1 px-2">
         <article class="container-input position-relative">
@@ -66,10 +66,10 @@
 <!-- Modal Structure -->
 <div id="users" class="modal bottom-sheet">
   <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+    <h3>Usuários</h3>
+    <p ng-repeat="row in usuarios" ng-bind="row.nome"></p>
   </div>
   <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
   </div>
 </div>
