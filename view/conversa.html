@@ -6,10 +6,10 @@
       <header ng-hide="usuarios.length > 2" class="header-conversas position-absolute top-0 w-100 row px-2 flex-center">
         <div class="col s6 flex-center px-0 title-nomes">
           <div class="icon-circle border-rounded"></div>
-          <span class="ml-1" ng-bind="usuarios[0].nome | limitTo: 15"></span>
+          <span class="ml-1" ng-bind="usuarios[0].nome | limitTo: 10"></span>
         </div>
         <div class="col s6 flex-center px-0 title-nomes justify-content-end ">
-          <span class="mr-1" ng-bind="usuarios[1].nome | limitTo: 15"></span>
+          <span class="mr-1" ng-bind="usuarios[1].nome | limitTo: 10"></span>
           <div class="icon-circle border-rounded amber accent-4"></div>
         </div>
       </header>
@@ -21,7 +21,7 @@
       <!-- conteudo -->
       <div id="box-mensagens" style=" padding: 0px 10px" class="conteudo">
         <article class="container-mensagens mt-4" style="margin-top: 20px;" ng-repeat="row in conversas.conversa">
-          <div class="s12 flex-center">
+          <div class="s12 flex-center" ng-show="row.dia != ''">
             <label class="tag_data">{{row.dia}}</label>
           </div>
           <div class="container-mensagem-linha" ng-repeat="linha in row.conversas.mensagens" ng-class="linha.id == '1'? 'flex-row':'flex-row-reverse'">
@@ -29,7 +29,7 @@
               <div class="icone-pessoa"></div>
             </div>
             <div class="mensagem-linha-container-conteudo">
-              <div class="conteudo-mensagem" ng-bind="linha.texto"></div>
+              <div class="conteudo-mensagem" ng-bind="linha.texto" ng-click="copiarMensagem(linha.texto)"></div>
               <div class="conteudo-mensagem-horario">
                 <div class="icone-horario" ng-bind="linha.hora" ng-class="linha.id == '1'? 'icone-tag-azul':'icone-tag-marrom'"></div>
               </div>
@@ -38,12 +38,11 @@
         </article>
       </div>
       <!-- fim conteudo -->
-
       <!-- footer -->
       <footer class="footer-conversas position-absolute bottom-0 w-100 p-1 px-2">
         <article class="container-input position-relative">
-          <input ng-model="texto_busca" type="text" placeholder="Pesquisar texto digitado" class="border-rounded white-text light-blue accent-3 px-2 mb-2 w-100" id="buscador">
-          <button id="bt-buscador" class="waves-effect waves-light" ng-click="buscar()">
+          <input ng-model="texto_busca" disabled="disabled" data-tooltip="Função ainda não disponível" type="text" placeholder="Pesquisar texto digitado" class="border-rounded white-text light-blue accent-3 px-2 mb-2 w-100" id="buscador">
+          <button id="bt-buscador" onclick="Materialize.toast('Função ainda não disponível', 1500, 'rounded')" class="waves-effect waves-light" ng-click="buscar()">
             <i class="fa fa-search"></i>
           </button>
         </article>
@@ -70,6 +69,7 @@
       height: calc(100% - 90px);
       margin-top: 50px;
       overflow-y: scroll;
+      overflow-x: hidden;
     }
     #box-mensagens::-webkit-scrollbar-track {
       background-color: #0000000f;
@@ -130,6 +130,7 @@
       font-size: 1.1em;
       background: white;
       border-radius: 3px;
+      word-break: break-all;
     }
     .mensagem-linha-container-conteudo{
       width: calc(100% - 40px);
